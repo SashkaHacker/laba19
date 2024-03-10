@@ -10,20 +10,21 @@ class Worker(BaseModel):
     phone: int
     date: List[str]
 
-    @field_validator('date')
+    @field_validator("date")
     def validate_date_parts(cls, v):
         if len(v) != 3:
             raise ValueError(
-                'Expected a list of 3 elements representing a date.')
+                "Expected a list of 3 elements representing a date."
+            )
 
         try:
             day, month, year = map(int, v)
             date = datetime(day=day, month=month, year=year)
         except ValueError as e:
-            raise ValueError(f'Error parsing date: {e}')
+            raise ValueError(f"Error parsing date: {e}")
 
         if not (datetime.min < date < datetime.now()):
-            raise ValueError('Date is out of acceptable range.')
+            raise ValueError("Date is out of acceptable range.")
         return v
 
 

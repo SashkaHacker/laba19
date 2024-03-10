@@ -14,9 +14,9 @@ def get_worker():
     year = int(input("Год поступления? "))
     # Создать словарь.
     return {
-        'name': name,
-        'post': post,
-        'year': year,
+        "name": name,
+        "post": post,
+        "year": year,
     }
 
 
@@ -27,28 +27,21 @@ def display_workers(staff):
     # Проверить, что список работников не пуст.
     if staff:
         # Заголовок таблицы.
-        line = '+-{}-+-{}-+-{}-+-{}-+'.format(
-            '-' * 4,
-            '-' * 30,
-            '-' * 20,
-            '-' * 8
+        line = "+-{}-+-{}-+-{}-+-{}-+".format(
+            "-" * 4, "-" * 30, "-" * 20, "-" * 8
         )
         print(line)
         print(
-            '| {:^4} | {:^30} | {:^20} | {:^8} |'.format(
-                "No",
-                "Ф.И.О.",
-                "Должность",
-                "Год")
+            "| {:^4} | {:^30} | {:^20} | {:^8} |".format(
+                "No", "Ф.И.О.", "Должность", "Год"
+            )
         )
         print(line)
 
     # Вывести данные о всех сотрудниках.
     for idx, worker in enumerate(staff, 1):
-        print(
-            '| {:>4} | {:<30} | {:<20} | {:>8} |'.format(
-                idx,
-            ))
+        print("| {:>4} | {:<30} | {:<20} | {:>8} |".format(
+            idx, idx, idx, idx))
         print(line)
 
     else:
@@ -64,7 +57,7 @@ def select_workers(staff, period):
     # Сформировать список работников.
     result = []
     for employee in staff:
-        if today.year - employee.get('year', today.year) >= period:
+        if today.year - employee.get("year", today.year) >= period:
             result.append(employee)
 
     # Возвратить список выбранных работников.
@@ -111,7 +104,7 @@ def main():
             workers.append(worker)
             # Отсортировать список в случае необходимости.
             if len(workers) > 1:
-                workers.sort(key=lambda item: item.get('name', ''))
+                workers.sort(key=lambda item: item.get("name", ""))
         elif command == "list":
             # Отобразить всех работников.
             display_workers(workers)
@@ -138,7 +131,7 @@ def main():
             file_name = parts[1]
             # Сохранить данные в файл с заданным именем.
             workers = load_workers(file_name)
-        elif command == 'help':
+        elif command == "help":
             # Вывести справку о работе с программой.
             print("Список команд:\n")
             print("add - добавить работника;")
@@ -152,5 +145,5 @@ def main():
             print(f"Неизвестная команда {command}", file=sys.stderr)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
