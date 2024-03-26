@@ -14,3 +14,10 @@ repos:
         language: system
         types: [ python ]
         pass_filenames: false
+
+    -   id: isort
+        name: isort
+        entry: isort --settings-file ./.isort.cfg .
+        language: system
+        types: [ python ]
+        pass_filenames: false
