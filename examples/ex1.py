@@ -40,8 +40,7 @@ def display_workers(staff):
 
     # Вывести данные о всех сотрудниках.
     for idx, worker in enumerate(staff, 1):
-        print("| {:>4} | {:<30} | {:<20} | {:>8} |".format(
-            idx, idx, idx, idx))
+        print("| {:>4} | {:<30} | {:<20} | {:>8} |".format(idx, idx, idx, idx))
         print(line)
 
     else:

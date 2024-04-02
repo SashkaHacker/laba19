@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from datetime import datetime
-import sys
 import json
+import sys
+from datetime import datetime
 
 from pydantic_core._pydantic_core import ValidationError
 
