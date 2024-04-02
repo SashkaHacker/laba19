@@ -5,8 +5,6 @@ import json
 import sys
 from datetime import datetime
 
-from pydantic_core._pydantic_core import ValidationError
-
 from validation import ListWorkers
 
 
@@ -73,10 +71,8 @@ def load_workers(file_name):
     try:
         valid_data = ListWorkers(lst=data)
         return valid_data
-    except json.JSONDecodeError:
+    except Exception:
         print("Invalid JSON")
-    except ValidationError as e:
-        print("Validation failed:", e.errors())
 
 
 def workers(lst):

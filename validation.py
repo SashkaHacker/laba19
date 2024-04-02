@@ -12,11 +12,6 @@ class Worker(BaseModel):
 
     @field_validator("date")
     def validate_date_parts(cls, v):
-        if len(v) != 3:
-            raise ValueError(
-                "Expected a list of 3 elements representing a date."
-            )
-
         try:
             day, month, year = map(int, v)
             date = datetime(day=day, month=month, year=year)
